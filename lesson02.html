@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Базовый курс JavaScript. Урок 2.</title>
+    <script> 
+        var a = 1, b = 1, c, d;
+        c = ++a; alert(c);           // 2 - сначала a увеличится на 1 (a = 2), а потом это значение будет присвоено c
+        d = b++; alert(d);           // 1 - сначала будет присвоено значение d, только потом b будет увеличено на 1 (b=2)
+        c = (2+ ++a); alert(c);      // 5 - сначала a увеличинается на 1 (a = 3), потом выполняются остальные действия: к нему прибавляется еще 2, и уже это значение присваивается c
+        d = (2+ b++); alert(d);      // 4 - сначала выполняется сложение с 2 и присваивание полученного значения d, а затем уже b увеличивается на 1 (b = 3)
+        alert(a);                    // 3
+        alert(b);                    // 3
+    </script>
+    <script>
+        var a = 2;
+        var x = 1 + (a *= 2); // x = 5
+    </script>
+    <script>
+        var a = -10, b = 20;
+        if (a >= 0 && b >= 0) {
+            alert(a - b);
+        }
+        else if (a < 0 && b < 0) {
+            alert(a * b)
+        }
+        else { 
+            alert(a + b)
+        }
+    </script>
+    <script>
+        var a = 4;
+        switch (a) {
+            case 0:
+                alert(0);
+            case 1:
+                alert(1);
+            case 2:
+                alert(2);
+            case 3:
+                alert(3);
+            case 4:
+                alert(4);
+            case 5:
+                alert(5);
+            case 6:
+                alert(6);
+            case 7:
+                alert(7);
+            case 8:
+                alert(8);
+            case 9:
+                alert(9);
+            case 10:
+                alert(10);
+            case 11:
+                alert(11);
+            case 12:
+                alert(12);
+            case 13:
+                alert(13);
+            case 14:
+                alert(14);
+            case 15:
+                alert(15);
+                break;
+            default: alert('wrong nubmer')
+        }
+    </script>
+    <script>
+        function add(a, b) {
+            a = parseFloat(a);
+            b = parseFloat(b);
+            var result = a + b;
+            return result;
+        }
+        function sub(a, b) {
+            a = parseFloat(a);
+            b = parseFloat(b);
+            var result = a - b;
+            return result;
+        }
+        function mul(a, b) {
+            a = parseFloat(a);
+            b = parseFloat(b);
+            var result = a * b;
+            return result;
+        }
+        function div(a, b) {
+            a = parseFloat(a);
+            b = parseFloat(b);
+            if (b == 0) {
+                throw new Error("Деление на 0");
+            }
+            else {
+                var result = a / b;
+            }
+            return result;
+        }
+        
+        function mathOperation(arg1, arg2, operation) {
+            switch (operation) {
+                case 'add':
+                    var result = add(arg1, arg2);
+                    break;
+                case 'subtract':
+                    var result = sub(arg1, arg2);
+                    break;
+                case 'multiply':
+                    var result = mul(arg1, arg2);
+                    break;
+                case 'divide':
+                    var result = div(arg1, arg2);
+                    break;
+                default:
+                    throw new Error("unknown operation");
+            }
+            return result;
+        }
+        
+        var a = 3, b = 0;
+        alert(mathOperation(a, b, 'add'));
+        alert(mathOperation(a, b, 'subtract'));
+        alert(mathOperation(a, b, 'multiply'));
+        alert(mathOperation(a, b, 'divide'));
+    </script>
+    <script>
+        alert(null > 0);
+        alert(null < 0);
+        alert(null == 0); // null - это неопределенное значение. Неизвестно, больше оно 0, меньше, или равно ему.
+    </script>
+</head>
+<body>
+</body>
+</html>
