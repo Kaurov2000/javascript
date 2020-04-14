@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Базовый курс JavaScript. Урок 4.</title>
+</head>
+
+<body>
+    <script>
+        function Number(ones, tens, hundreds) {
+            this.ones = ones;
+            this.tens = tens;
+            this.hundreds = hundreds;
+        }
+
+        var input = prompt("Введите число от 0 до 999");
+        input = parseInt(input);
+        if (input >= 0 || input <= 999) {
+            var num = new Number()
+            for (var prop in num) {
+                num[prop] = input % 10;
+                input = Math.floor(input / 10);
+            }
+        } else {
+            alert("число введено неверно")
+        }
+        console.log(num)
+    </script>
+</body></html>
