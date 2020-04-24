@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="chess">
+    </div>
+    <script src="chess.js"></script>
+    <script>
+        function chessBoard() {
+            var trElement, tdElement;
+            var size = 60, figureSize = "50px"
+            
+
+            var board = document.createElement("table");
+            board.borderCollapse = "collapse";
+
+            for (var i = 9; i >= 0; i = i - 1) {
+                trElement = document.createElement("tr");
+                for (var j in lines) {
+                    tdElement = document.createElement("td");
+                    tdElement.verticalAlign = "middle";
+                    tdElement.style.textAlign = "center";
+                    tdElement.id = lines[j] + i
+                    //tdElement.innerText = tdElement.getAttribute("id")
+
+                    if ((j - i) % 2 == 0) {
+                        tdElement.style.backgroundColor = "brown";
+                        //tdElement.style.color = "white";
+                    }
+
+                    if ((i == 0 && j == 0) || (i == 9 && j == 0) || (i == 0 && j == 9) || (i == 9 && j == 9)) {
+                        tdElement.width = size / 2 + "px";
+                        tdElement.height = size / 2 + "px";
+                        tdElement.style.backgroundColor = "white";
+                        tdElement.style.color = "black";
+                    } else if (i == 0 || i == 9) {
+                        tdElement.width = size + "px";
+                        tdElement.height = size / 2 + "px";
+                        tdElement.style.backgroundColor = "white";
+                        tdElement.style.color = "black";
+                        tdElement.innerText = lines[j];
+                        tdElement.style.transform = "rotate(" + 180 * i + "deg)";
+                    } else if (j == 0 || j == 9) {
+                        tdElement.width = size / 2 + "px";
+                        tdElement.height = size + "px";
+                        tdElement.style.backgroundColor = "white";
+                        tdElement.style.color = "black";
+                        tdElement.innerText = i;
+                        tdElement.style.transform = "rotate(" + 180 * j + "deg)";
+                    } else {
+                        tdElement.width = size + "px";
+                        tdElement.height = size + "px";
+                        tdElement.style.outline = "1px solid black";
+                        tdElement.style.fontSize = figureSize;
+                    }
+
+
+
+                    trElement.append(tdElement);
+                }
+                board.append(trElement);
+            }
+            document.querySelector(".chess").append(board);
+        }
+        chessBoard();
+
+        function placeFigures() {
+            var placeId;
+            for (var i=1; i<=8; i++) {
+                placeId = lines[i] + 2;
+                document.getElementById(placeId).innerHTML = whitePawn;
+                placeId = lines[i] + 7;
+                document.getElementById(placeId).innerHTML = blackPawn;
+            }
+            document.getElementById("A1").innerHTML = whiteRook;
+            document.getElementById("H1").innerHTML = whiteRook;
+            document.getElementById("B1").innerHTML = whiteKnight;
+            document.getElementById("G1").innerHTML = whiteKnight;
+            document.getElementById("C1").innerHTML = whiteBishop;
+            document.getElementById("F1").innerHTML = whiteBishop;
+            document.getElementById("D1").innerHTML = whiteQueen;
+            document.getElementById("E1").innerHTML = whiteKing;
+            
+            document.getElementById("A8").innerHTML = blackRook;
+            document.getElementById("H8").innerHTML = blackRook;
+            document.getElementById("B8").innerHTML = blackKnight;
+            document.getElementById("G8").innerHTML = blackKnight;
+            document.getElementById("C8").innerHTML = blackBishop;
+            document.getElementById("F8").innerHTML = blackBishop;
+            document.getElementById("D8").innerHTML = blackQueen;
+            document.getElementById("E8").innerHTML = blackKing;
+        }
+        
+        placeFigures();
+
+    </script>
+</body>
+
+</html>
